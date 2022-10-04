@@ -7,7 +7,7 @@
     <!-- This is an example component -->
     <div class="ml-0 h-screen ">
         <aside class="w-64 h-screen" aria-label="Sidebar">
-            <div class="px-3 py-4 overflow-y-auto bg-white border-b h-screen border-gray-50 drop-shadow-[0_0_1px_rgba(0,0,0,0.10)]">
+            <div class="px-3 py-4 overflow-y-auto bg-white dark:bg-slate-700 border-b h-screen border-gray-50 dark:border-gray-500 drop-shadow-[0_0_1px_rgba(0,0,0,0.10)]">
                 <ul class="space-y-2">
                     <li>
                         <SideBarNavLink :href="route('dashboard')" :active="route().current('dashboard')">

@@ -35,13 +35,17 @@ class GameController extends Controller
       
         $provider = request('provider');
         $partner = request('partner');
-        $page = request('page');
-        if($provider == '' || $provider == ''){
-            $data = Game::where('provider_id',$partner)->orderBy(DB::raw('trim(game_name)'),'asc')->paginate(10);
-        }
-        if($provider != '' || $provider != ''){
-            $data = Game::where('provider_id',$partner)->where('sub_provider_id',$provider)->orderBy(DB::raw('trim(game_name)'),'asc')->paginate(10);
-        }
+        $per_page = request('per_page');
+        $search = request('search');
+       
+        $data = Game::where('provider_id',$partner)
+        ->when(request('provider') != '',function($q)use($provider){
+            return $q->where("sub_provider_id",$provider);
+        })
+        ->when(request('search') != '',function($q)use($search){
+            return $q->where("game_name","LIKE","%".$search."%");
+        })->orderBy(DB::raw('trim(game_name)'),'asc')->paginate($per_page);
+       
         $games = $data;
         return $games;
     }
