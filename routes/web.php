@@ -35,6 +35,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
     Route::get('games/add', [GameController::class,'store'])->name('games-add');
     Route::post('games/provider', [GameController::class,'provider'])->name('games-provider');
     Route::get('games/list', [GameController::class,'gameList'])->name('games-list');
+    Route::get('games/game-type', [GameController::class,'gameType'])->name('game-type');
+    Route::get('games/game', [GameController::class,'game'])->name('game');
+    Route::post('games/update', [GameController::class,'update'])->name('update');
+    Route::post('games/status', [GameController::class,'status'])->name('status');
 });
 
 

@@ -4,10 +4,9 @@
 
 
 <template>
-    <!-- This is an example component -->
-    <div class="ml-0 h-screen ">
-        <aside class="w-64 h-screen" aria-label="Sidebar">
-            <div class="px-3 py-4 overflow-y-auto bg-white dark:bg-slate-700 border-b h-screen border-gray-50 dark:border-gray-500 drop-shadow-[0_0_1px_rgba(0,0,0,0.10)]">
+    <div class="ml-0 ">
+        <aside class="w-64 h-screen fixed top-[65px] z-40 " aria-label="Sidebar">
+            <div class=" px-3 py-4 overflow-y-auto bg-white dark:bg-[#1e1e1e] border-b h-screen shadow-md border-gray-50 dark:border-gray-500 drop-shadow-[0_0_1px_rgba(0,0,0,0.10)]">
                 <ul class="space-y-2">
                     <li>
                         <SideBarNavLink :href="route('dashboard')" :active="route().current('dashboard')">

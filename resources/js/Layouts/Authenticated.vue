@@ -20,8 +20,8 @@
     
     <template>
         <div>
-            <div class="min-h-screen bg-gray-100 dark:bg-slate-600">
-                <nav class="bg-white border-b border-gray-100 dark:bg-slate-700 dark:border-gray-600">
+            <div class="min-h-screen bg-gray-100 dark:bg-[#121212]">
+                <nav class="sticky top-0 z-40 bg-white  border-gray-100 shadow-md dark:bg-[#1e1e1e] ">
                     <!-- Primary Navigation Menu -->
                     <div class="mx-auto px-4 sm:px-6 lg:px-8 ">
                         <div class="flex justify-between h-16">
@@ -29,7 +29,7 @@
                                 <!-- Logo -->
                                 <div class="shrink-0 flex items-center">
                                     <Link :href="route('dashboard')">
-                                        <BreezeApplicationLogo class="block h-9 w-auto dark:fill-white" />
+                                        <BreezeApplicationLogo />
                                     </Link>
                                 </div>
     
@@ -65,7 +65,7 @@
                                     <BreezeDropdown align="right" width="48">
                                         <template #trigger>
                                             <span class="inline-flex rounded-md ">
-                                                <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white dark:bg-gray-600 dark:text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
+                                                <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white dark:bg-[#2c2c2c] dark:text-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
                                                     {{ $page.props.auth.user.name }}
     
                                                     <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -119,23 +119,19 @@
                         </div>
                     </div>
                 </nav>
-    
                 <!-- Page Heading -->
                 <header class="bg-white shadow" v-if="$slots.header">
                     <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
                         <slot name="header" />
                     </div>
                 </header>
-    
-                
-                
-                <!-- Page Content -->
+                <Sidebar></Sidebar>
                 <main class="flex">
-                    <!-- Page Sidebar -->
-                    <Sidebar></Sidebar>
-                    <!-- Pages -->
-                    <slot />
-                    
+                    <div class="p-5 w-full pl-[17.4rem]">
+                        <div class="w-full lg:p-8 bg-white dark:bg-[#1e1e1e] overflow-hidden shadow-md sm:rounded-lg">
+                            <slot />
+                        </div>
+                    </div>
                 </main>
             </div>
         </div>
